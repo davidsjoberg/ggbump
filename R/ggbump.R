@@ -1,5 +1,20 @@
 #' @importFrom dplyr %>%
+#'
 
+#' @title sigmoid
+#'
+#' Creates a longer dataframe with coordinates for a smoothed line.
+#'
+#' @param x_from start x value
+#' @param x_to end x value
+#' @param y_from start y value
+#' @param y_to end y values
+#' @param n number of point that should be smoothed
+#' @param smooth smooth parameter. Higher means less smoothing
+#'
+#' @return a data frame
+#'
+#' @export
 sigmoid <- function(x_from, x_to, y_from, y_to, smooth = 5, n = 100) {
   x <- seq(-smooth, smooth, length = n)
   y <- exp(x) / (exp(x) + 1)
@@ -7,7 +22,18 @@ sigmoid <- function(x_from, x_to, y_from, y_to, smooth = 5, n = 100) {
              y = y * (y_to - y_from) + y_from)
 }
 
-# StatSigmoidTime -------------------------------------------------------------
+# rank_sigmoid -------------------------------------------------------------
+#' @title rank_sigmoid
+#'
+#' Creates a longer dataframe with coordinates for a smoothed line.
+#'
+#' @param x vector
+#' @param y vector
+#' @param smooth smooth parameter. Higher means less smoothing
+#'
+#' @return a data frame
+#'
+#' @export
 rank_sigmoid <- function(x, y, smooth = 8) {
   .df <- dplyr::tibble(x = x,
                 y = y) %>%
@@ -46,10 +72,19 @@ StatBump <- ggplot2::ggproto("StatBump", ggplot2::Stat,
                            required_aes = c("x", "y"),
                            default_aes = ggplot2::aes(smooth = 5)
 )
-#' Smooth rank over time
+#' @title geom_bump
 #'
 #' Creates a ggplot that makes a smooth rank over time. To change the `smooth`
 #' argument you need to put it in the `aes` of the geom.
+#'
+#' @param mapping provide you own mapping. both x and y need to be numeric.
+#' @param data provide you own data
+#' @param geom xhange geom
+#' @param position change position
+#' @param na.rm remove missing values
+#' @param show.legend show legend in plot
+#' @param inherit.aes should the geom inherits aestethics
+#' @param ... other arguments to be passed to the geom
 #'
 #' @return ggplot layer
 #'

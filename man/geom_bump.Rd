@@ -2,7 +2,10 @@
 % Please edit documentation in R/ggbump.R
 \name{geom_bump}
 \alias{geom_bump}
-\title{Smooth rank over time}
+\title{geom_bump
+
+Creates a ggplot that makes a smooth rank over time. To change the `smooth`
+argument you need to put it in the `aes` of the geom.}
 \usage{
 geom_bump(
   mapping = NULL,
@@ -15,11 +18,31 @@ geom_bump(
   ...
 )
 }
+\arguments{
+\item{mapping}{provide you own mapping}
+
+\item{data}{provide you own data}
+
+\item{geom}{xhange geom}
+
+\item{position}{change position}
+
+\item{na.rm}{remove missing values}
+
+\item{show.legend}{show legend in plot}
+
+\item{inherit.aes}{should the geom inherits aestethics}
+
+\item{...}{other arguments to be passed to the geom}
+}
 \value{
 ggplot layer
 }
 \description{
-Creates a ggplot that makes a smooth rank over time.
+geom_bump
+
+Creates a ggplot that makes a smooth rank over time. To change the `smooth`
+argument you need to put it in the `aes` of the geom.
 }
 \examples{
 \dontrun{

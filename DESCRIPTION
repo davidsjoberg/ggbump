@@ -4,7 +4,7 @@ Title: Bump Chart In GGplot
 Version: 0.1.0
 Author: David Sjöberg
 Maintainer: David Sjöberg <dav.sjob@gmail.com>
-Description: A geom for ggplot to create bump plots
+Description: A geom for ggplot to create bump plots. Can be good to use for showing rank over time.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
