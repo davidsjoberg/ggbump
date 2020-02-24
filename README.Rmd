@@ -1,0 +1,118 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  echo = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%",
+  dpi = 800
+)
+```
+# ggbump
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The R package `ggbump` creates elegant bump charts in ggplot.Bump charts are good
+to use to plot rankning over time.
+
+## Installation
+
+You can install the released version of ggbump from [github](https://https://github.com/davidsjoberg/ggbump) with:
+
+``` r
+devtools::install_github("davidsjoberg/ggbump")
+```
+
+## Bump chart Example
+
+This is a basic example which shows you how to solve a common problem:
+
+```{r main_plot, fig.height=3, fig.width = 9, echo = FALSE, warning=FALSE, message=FALSE}
+if(!require(pacman)) install.packages("pacman")
+pacman::p_load(tidyverse, cowplot, wesanderson, ggbump)
+
+df <- tibble(country = c("India", "India", "India", "Sweden", "Sweden", "Sweden", "Germany", "Germany", "Germany", "Finland", "Finland", "Finland"),
+             year = c(2011, 2012, 2013, 2011, 2012, 2013, 2011, 2012, 2013, 2011, 2012, 2013),
+             rank = c(4, 2, 2, 3, 1, 4, 2, 3, 1, 1, 4, 3))
+
+ggplot(df, aes(year, rank, color = country)) +
+  geom_point(size = 7) +
+  geom_text(data = df %>% filter(year == min(year)),
+            aes(x = year - .1, label = country), size = 5, hjust = 1) +
+  geom_text(data = df %>% filter(year == max(year)),
+            aes(x = year + .1, label = country), size = 5, hjust = 0) +
+  geom_bump(aes(smooth = 8), size = 2) +
+  scale_x_continuous(limits = c(2010.6, 2013.4),
+                     breaks = seq(2011, 2013, 1)) +
+  theme_minimal_grid(font_size = 14, line_size = 0) +
+  theme(legend.position = "none",
+        panel.grid.major = element_blank()) +
+  labs(y = "RANK",
+       x = NULL) +
+  scale_y_reverse() +
+  scale_color_manual(values = wes_palette(n = 4, name = "GrandBudapest1"))
+
+```
+
+## Prep
+
+Load packages and get som data with rank:
+
+```{r data}
+if(!require(pacman)) install.packages("pacman")
+library(ggbump)
+pacman::p_load(tidyverse, cowplot, wesanderson)
+
+df <- tibble(country = c("India", "India", "India", "Sweden", "Sweden", "Sweden", "Germany", "Germany", "Germany", "Finland", "Finland", "Finland"),
+             year = c(2011, 2012, 2013, 2011, 2012, 2013, 2011, 2012, 2013, 2011, 2012, 2013),
+             rank = c(4, 2, 2, 3, 1, 4, 2, 3, 1, 1, 4, 3))
+
+knitr::kable(df)
+```
+
+## Make a bump chart
+
+Most simple use case:
+
+```{r pressure, echo = TRUE, fig.height=3, fig.width = 9}
+ggplot(df, aes(year, rank, color = country)) +
+    geom_bump()
+```
+
+## Pimp the bump chart!
+
+Improve the bump chart by adding:
+
+* A point for each rank observation.
+* Choose a minimal theme, I use `theme_minimal_grid()` from `cowplot`.
+* Choose nice colors so it does not look generic ggplot. I use a palette from `wesanderson`.
+* Remove legend and add labels at the start and end of the bumpy ride.
+* Reverse the y-axis to get rank 1 at the top.
+* Adjust the 'smoothness' of the lines by setting the aestethic `smooth` to 8. Higher means less smooth.
+
+```{r, fig.height=3, fig.width = 9, echo = TRUE}
+ggplot(df, aes(year, rank, color = country)) +
+  geom_point(size = 7) +
+  geom_text(data = df %>% filter(year == min(year)),
+            aes(x = year - .1, label = country), size = 5, hjust = 1) +
+  geom_text(data = df %>% filter(year == max(year)),
+            aes(x = year + .1, label = country), size = 5, hjust = 0) +
+  geom_bump(aes(smooth = 8), size = 2) +
+  scale_x_continuous(limits = c(2010.6, 2013.4),
+                     breaks = seq(2011, 2013, 1)) +
+  theme_minimal_grid(font_size = 14, line_size = 0) +
+  theme(legend.position = "none",
+        panel.grid.major = element_blank()) +
+  labs(y = "RANK",
+       x = NULL) +
+  scale_y_reverse() +
+  scale_color_manual(values = wes_palette(n = 4, name = "GrandBudapest1"))
+```
+
