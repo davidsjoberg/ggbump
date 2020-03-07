@@ -13,7 +13,7 @@ are good to use to plot rankning over time.
 ## Installation
 
 You can install the released version of ggbump from
-[github](https://https://github.com/davidsjoberg/ggbump) with:
+[github](https://github.com/davidsjoberg/ggbump) with:
 
 ``` r
 devtools::install_github("davidsjoberg/ggbump")
