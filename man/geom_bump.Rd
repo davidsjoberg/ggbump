@@ -14,12 +14,13 @@ geom_bump(
   position = "identity",
   na.rm = FALSE,
   show.legend = NA,
+  smooth = 8,
   inherit.aes = TRUE,
   ...
 )
 }
 \arguments{
-\item{mapping}{provide you own mapping}
+\item{mapping}{provide you own mapping. both x and y need to be numeric.}
 
 \item{data}{provide you own data}
 
@@ -30,6 +31,8 @@ geom_bump(
 \item{na.rm}{remove missing values}
 
 \item{show.legend}{show legend in plot}
+
+\item{smooth}{how much smooth should the curve have? More means steeper curve.}
 
 \item{inherit.aes}{should the geom inherits aestethics}
 
