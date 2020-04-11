@@ -8,7 +8,7 @@
 <!-- badges: end -->
 
 The R package `ggbump` creates elegant bump charts in ggplot.Bump charts
-are good to use to plot rankning over time.
+are good to use to plot ranking over time.
 
 ## Installation
 
@@ -53,7 +53,7 @@ above](https://github.com/davidsjoberg/ggbump/wiki/geom_sigmoid)
 
 ## Prep
 
-Load packages and get som data with rank:
+Load packages and get some data with rank:
 
 ``` r
 if(!require(pacman)) install.packages("pacman")
@@ -183,5 +183,5 @@ p +
 
 ## Feedback
 
-If you find any error or have suggestions for improvements you ar emore
+If you find any error or have suggestions for improvements you are more
 than welcome to contact me :)

@@ -25,7 +25,7 @@ geom_bump(
 
 \item{data}{provide you own data}
 
-\item{geom}{xhange geom}
+\item{geom}{change geom}
 
 \item{position}{change position}
 

@@ -20,7 +20,7 @@ knitr::opts_chunk$set(
 <!-- badges: end -->
 
 The R package `ggbump` creates elegant bump charts in ggplot.Bump charts are good
-to use to plot rankning over time.
+to use to plot ranking over time.
 
 ## Installation
 
@@ -83,7 +83,7 @@ With `geom_sigmoid` you can make custom sigmoid curves:
 
 ## Prep
 
-Load packages and get som data with rank:
+Load packages and get some data with rank:
 
 ```{r data}
 if(!require(pacman)) install.packages("pacman")
@@ -189,4 +189,4 @@ p +
 
 ## Feedback
 
-If you find any error or have suggestions for improvements you ar emore than welcome to contact me :)
+If you find any error or have suggestions for improvements you are more than welcome to contact me :)

@@ -92,7 +92,7 @@ StatBump <- ggplot2::ggproto("StatBump", ggplot2::Stat,
 #'
 #' @param mapping provide you own mapping. both x and y need to be numeric.
 #' @param data provide you own data
-#' @param geom xhange geom
+#' @param geom change geom
 #' @param position change position
 #' @param na.rm remove missing values
 #' @param show.legend show legend in plot
