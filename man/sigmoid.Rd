@@ -6,7 +6,7 @@
 
 Creates a longer dataframe with coordinates for a smoothed line.}
 \usage{
-sigmoid(x_from, x_to, y_from, y_to, smooth = 5, n = 100)
+sigmoid(x_from, x_to, y_from, y_to, smooth = 5, n = 100, direction = "x")
 }
 \arguments{
 \item{x_from}{start x value}
@@ -20,6 +20,8 @@ sigmoid(x_from, x_to, y_from, y_to, smooth = 5, n = 100)
 \item{smooth}{smooth parameter. Higher means less smoothing}
 
 \item{n}{number of point that should be smoothed}
+
+\item{direction}{the character x or y depending on direction of smoothing}
 }
 \value{
 a data frame

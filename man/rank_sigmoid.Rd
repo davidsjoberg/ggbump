@@ -6,7 +6,7 @@
 
 Creates a longer dataframe with coordinates for a smoothed line.}
 \usage{
-rank_sigmoid(x, y, smooth = 8)
+rank_sigmoid(x, y, smooth = 8, direction = "x")
 }
 \arguments{
 \item{x}{vector}
@@ -14,6 +14,8 @@ rank_sigmoid(x, y, smooth = 8)
 \item{y}{vector}
 
 \item{smooth}{smooth parameter. Higher means less smoothing}
+
+\item{direction}{the character x or y depending of smoothing direction}
 }
 \value{
 a data frame
