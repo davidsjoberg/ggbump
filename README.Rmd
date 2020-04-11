@@ -73,6 +73,12 @@ Flags could be used instead of names:
 
 [Click here for code to the plot above](https://github.com/davidsjoberg/ggbump/wiki/geom_bump-with-flags)
 
+With `geom_sigmoid` you can make custom sigmoid curves:
+
+![Example4](https://user-images.githubusercontent.com/44140737/79050627-9268c880-7c2b-11ea-9afb-263cce8f98f3.png)
+
+[Click here for code to the plot above](https://github.com/davidsjoberg/ggbump/wiki/geom_sigmoid)
+
 # Tutorial
 
 ## Prep

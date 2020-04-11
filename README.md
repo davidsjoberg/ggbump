@@ -25,19 +25,29 @@ Basic example:
 
 <img src="man/figures/README-main_plot-1.png" width="100%" />
 
-A more advanced example:
+A more advanced
+example:
 
 ![Example2](https://user-images.githubusercontent.com/44140737/75692519-fb146b00-5ca5-11ea-85f5-9fc33e760a7d.png)
 
 [Click here for code to the plot
 above](https://github.com/davidsjoberg/ggbump/wiki/My-year-on-Spotify)
 
-Flags could be used instead of names:
+Flags could be used instead of
+names:
 
 ![Example3](https://user-images.githubusercontent.com/44140737/76630573-8f04f300-6540-11ea-802a-653e3b509dfa.png)
 
 [Click here for code to the plot
 above](https://github.com/davidsjoberg/ggbump/wiki/geom_bump-with-flags)
+
+With `geom_sigmoid` you can make custom sigmoid
+curves:
+
+![Example4](https://user-images.githubusercontent.com/44140737/79050627-9268c880-7c2b-11ea-9afb-263cce8f98f3.png)
+
+[Click here for code to the plot
+above](https://github.com/davidsjoberg/ggbump/wiki/geom_sigmoid)
 
 # Tutorial
 
@@ -110,7 +120,6 @@ ggplot(df, aes(year, rank, color = country)) +
        x = NULL) +
   scale_y_reverse() +
   scale_color_manual(values = wes_palette(n = 4, name = "GrandBudapest1"))
-#> Warning: Ignoring unknown parameters: smooth
 ```
 
 <img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
@@ -151,7 +160,6 @@ p <- ggplot(df, aes(x, y, color = player)) +
                      labels = df$season %>% levels()) +
   scale_y_reverse(breaks = df$y %>% unique(),
                      labels = df$position %>% levels())
-#> Warning: Ignoring unknown parameters: smooth
 p
 ```
 
