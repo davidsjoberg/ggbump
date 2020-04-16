@@ -8,3 +8,5 @@
 0 errors | 0 warnings | 0 note
 
 * This is a new release.
+
+* Fixed issue from first CRAN submission. Removed dontrun in documentation examples.

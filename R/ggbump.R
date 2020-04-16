@@ -1,6 +1,5 @@
 #' @importFrom dplyr %>%
 #'
-
 #' @title sigmoid
 #'
 #' Creates a longer dataframe with coordinates for a smoothed line.
@@ -104,8 +103,8 @@ StatBump <- ggplot2::ggproto("StatBump", ggplot2::Stat,
 #' @return ggplot layer
 #'
 #' @examples
-#' \dontrun{
-#'   df <- tibble(country = c(
+#' library(ggplot2)
+#' df <- data.frame(country = c(
 #'   "India", "India", "India",
 #'   "Sweden", "Sweden", "Sweden",
 #'   "Germany", "Germany", "Germany",
@@ -119,7 +118,6 @@ StatBump <- ggplot2::ggproto("StatBump", ggplot2::Stat,
 #' ggplot(df, aes(year, rank, color = country)) +
 #'   geom_point(size = 10) +
 #'   geom_bump(size = 2)
-#' }
 #'
 #' @export
 geom_bump <- function(mapping = NULL, data = NULL, geom = "line",
@@ -167,14 +165,14 @@ StatSigmoid <- ggplot2::ggproto("StatSigmoid", ggplot2::Stat,
 #' @return ggplot layer
 #'
 #' @examples
-#' \dontrun{
-#' tibble(x = 1:6,
+#' library(ggplot2)
+#' df <- data.frame(x = 1:6,
 #'        y = 5:10,
 #'        xend = 7,
-#'        yend = -3:2) %>%
-#'   ggplot(aes(x = x, xend = xend, y = y, yend = yend, color = factor(x))) +
+#'        yend = -3:2)
+#'
+#' ggplot(df, aes(x = x, xend = xend, y = y, yend = yend, color = factor(x))) +
 #'   geom_sigmoid()
-#' }
 #'
 #' @export
 geom_sigmoid <- function(mapping = NULL, data = NULL, geom = "line",

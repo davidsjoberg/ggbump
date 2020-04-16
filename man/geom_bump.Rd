@@ -51,8 +51,8 @@ Creates a ggplot that makes a smooth rank over time. To change the `smooth`
 argument you need to put it outside of the `aes` of the geom. Uses the x and y aestethics.
 }
 \examples{
-\dontrun{
-  df <- tibble(country = c(
+library(ggplot2)
+df <- data.frame(country = c(
   "India", "India", "India",
   "Sweden", "Sweden", "Sweden",
   "Germany", "Germany", "Germany",
@@ -66,6 +66,5 @@ rank = c(4, 2, 2, 3, 1, 4, 2, 3, 1, 1, 4, 3))
 ggplot(df, aes(year, rank, color = country)) +
   geom_point(size = 10) +
   geom_bump(size = 2)
-}
 
 }

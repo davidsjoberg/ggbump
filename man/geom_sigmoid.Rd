@@ -53,13 +53,13 @@ argument you need to put it outside of the `aes` of the geom.
 Uses the x, xend, y and yend aestethics. Make sure each sigmoid curve is its own group.
 }
 \examples{
-\dontrun{
-tibble(x = 1:6,
+library(ggplot2)
+df <- data.frame(x = 1:6,
        y = 5:10,
        xend = 7,
-       yend = -3:2) \%>\%
-  ggplot(aes(x = x, xend = xend, y = y, yend = yend, color = factor(x))) +
+       yend = -3:2)
+
+ggplot(df, aes(x = x, xend = xend, y = y, yend = yend, color = factor(x))) +
   geom_sigmoid()
-}
 
 }
