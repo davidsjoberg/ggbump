@@ -66,7 +66,7 @@ StatBump <- ggplot2::ggproto("StatBump", ggplot2::Stat,
                                return(data %>% dplyr::slice(0))
                              }
                              data <- data %>%
-                               arrange(x)
+                               dplyr::arrange(x)
 
                              out <-rank_sigmoid(data$x, data$y, smooth = smooth, direction = direction) %>%
                                dplyr::mutate(key = 1) %>%
