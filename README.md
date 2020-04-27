@@ -12,7 +12,13 @@ are good to use to plot ranking over time.
 
 ## Installation
 
-You can install the released version of ggbump from
+You can install ggbump from CRAN with:
+
+``` r
+install.packages("ggbump")
+```
+
+Or the latest development version from
 [github](https://github.com/davidsjoberg/ggbump) with:
 
 ``` r
@@ -25,24 +31,21 @@ Basic example:
 
 <img src="man/figures/README-main_plot-1.png" width="100%" />
 
-A more advanced
-example:
+A more advanced example:
 
 ![Example2](https://user-images.githubusercontent.com/44140737/75692519-fb146b00-5ca5-11ea-85f5-9fc33e760a7d.png)
 
 [Click here for code to the plot
 above](https://github.com/davidsjoberg/ggbump/wiki/My-year-on-Spotify)
 
-Flags could be used instead of
-names:
+Flags could be used instead of names:
 
 ![Example3](https://user-images.githubusercontent.com/44140737/76630573-8f04f300-6540-11ea-802a-653e3b509dfa.png)
 
 [Click here for code to the plot
 above](https://github.com/davidsjoberg/ggbump/wiki/geom_bump-with-flags)
 
-With `geom_sigmoid` you can make custom sigmoid
-curves:
+With `geom_sigmoid` you can make custom sigmoid curves:
 
 ![Example4](https://user-images.githubusercontent.com/44140737/79050627-9268c880-7c2b-11ea-9afb-263cce8f98f3.png)
 
@@ -62,19 +65,41 @@ pacman::p_load(tidyverse, cowplot, wesanderson)
 
 df <- tibble(country = c("India", "India", "India", "Sweden", "Sweden", "Sweden", "Germany", "Germany", "Germany", "Finland", "Finland", "Finland"),
              year = c(2011, 2012, 2013, 2011, 2012, 2013, 2011, 2012, 2013, 2011, 2012, 2013),
-             rank = c(4, 2, 2, 3, 1, 4, 2, 3, 1, 1, 4, 3))
+             value = c(492, 246, 246, 369, 123, 492, 246, 369, 123, 123, 492, 369))
 
 knitr::kable(head(df))
 ```
 
-| country | year | rank |
-| :------ | ---: | ---: |
-| India   | 2011 |    4 |
-| India   | 2012 |    2 |
-| India   | 2013 |    2 |
-| Sweden  | 2011 |    3 |
-| Sweden  | 2012 |    1 |
-| Sweden  | 2013 |    4 |
+| country | year | value |
+| :------ | ---: | ----: |
+| India   | 2011 |   492 |
+| India   | 2012 |   246 |
+| India   | 2013 |   246 |
+| Sweden  | 2011 |   369 |
+| Sweden  | 2012 |   123 |
+| Sweden  | 2013 |   492 |
+
+To create a ranking column we use `rank` from base R. We specify
+`ties.method = "random"` to make sure that each country have different
+rankings if they have the same value.
+
+``` r
+df <- df %>% 
+  group_by(year) %>% 
+  mutate(rank = rank(value, ties.method = "random")) %>% 
+  ungroup()
+
+knitr::kable(head(df))
+```
+
+| country | year | value | rank |
+| :------ | ---: | ----: | ---: |
+| India   | 2011 |   492 |    4 |
+| India   | 2012 |   246 |    2 |
+| India   | 2013 |   246 |    2 |
+| Sweden  | 2011 |   369 |    3 |
+| Sweden  | 2012 |   123 |    1 |
+| Sweden  | 2013 |   492 |    4 |
 
 ## Make a bump chart
 
@@ -122,7 +147,7 @@ ggplot(df, aes(year, rank, color = country)) +
   scale_color_manual(values = wes_palette(n = 4, name = "GrandBudapest1"))
 ```
 
-<img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
 
 ## geom\_bump with factors
 
@@ -163,7 +188,7 @@ p <- ggplot(df, aes(x, y, color = player)) +
 p
 ```
 
-<img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
 
 ### And some nice theme features
 
@@ -179,7 +204,7 @@ p +
   scale_color_manual(values = wes_palette(n = 3, name = "IsleofDogs1"))
 ```
 
-<img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
 
 ## Feedback
 

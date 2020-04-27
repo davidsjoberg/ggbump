@@ -1,7 +1,7 @@
 Package: ggbump
 Type: Package
 Title: Bump Chart and Sigmoid Curves
-Version: 0.1.0
+Version: 0.1.99999
 Author: David Sjoberg
 Maintainer: David Sjoberg <dav.sjob@gmail.com>
 Description: A geom for ggplot to create bump plots. Can be good to use for showing rank over time.

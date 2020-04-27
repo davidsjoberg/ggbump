@@ -24,7 +24,13 @@ to use to plot ranking over time.
 
 ## Installation
 
-You can install the released version of ggbump from [github](https://github.com/davidsjoberg/ggbump) with:
+You can install ggbump from CRAN with:
+
+``` r
+install.packages("ggbump")
+```
+
+Or the latest development version from [github](https://github.com/davidsjoberg/ggbump) with:
 
 ``` r
 devtools::install_github("davidsjoberg/ggbump")
@@ -92,10 +98,22 @@ pacman::p_load(tidyverse, cowplot, wesanderson)
 
 df <- tibble(country = c("India", "India", "India", "Sweden", "Sweden", "Sweden", "Germany", "Germany", "Germany", "Finland", "Finland", "Finland"),
              year = c(2011, 2012, 2013, 2011, 2012, 2013, 2011, 2012, 2013, 2011, 2012, 2013),
-             rank = c(4, 2, 2, 3, 1, 4, 2, 3, 1, 1, 4, 3))
+             value = c(492, 246, 246, 369, 123, 492, 246, 369, 123, 123, 492, 369))
 
 knitr::kable(head(df))
 ```
+
+To create a ranking column we use `rank` from base R. We specify `ties.method = "random"` to make sure that each country have different rankings if they have the same value.
+
+```{r}
+df <- df %>% 
+  group_by(year) %>% 
+  mutate(rank = rank(value, ties.method = "random")) %>% 
+  ungroup()
+
+knitr::kable(head(df))
+```
+
 
 ## Make a bump chart
 
