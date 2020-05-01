@@ -19,7 +19,7 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-The R package `ggbump` creates elegant bump charts in ggplot.Bump charts are good
+The R package `ggbump` creates elegant bump charts in ggplot. Bump charts are good
 to use to plot ranking over time.
 
 ## Installation
