@@ -4,3 +4,4 @@ LICENSE.md
 README.Rmd
 ^cran-comments\.md$
 ^CRAN-RELEASE$
+^data-raw$
