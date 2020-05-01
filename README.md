@@ -1,10 +1,12 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# ggbump
+# ggbump <img src="man/figures/logo.png" align="right" />
 
 <!-- badges: start -->
 
+[![CRAN
+status](https://www.r-pkg.org/badges/version/ggbump)](https://CRAN.R-project.org/package=ggbump)
 <!-- badges: end -->
 
 The R package `ggbump` creates elegant bump charts in ggplot.Bump charts
@@ -28,6 +30,11 @@ devtools::install_github("davidsjoberg/ggbump")
 ## Bump chart Examples
 
 Basic example:
+
+    #> package 'wesanderson' successfully unpacked and MD5 sums checked
+    #> 
+    #> The downloaded binary packages are in
+    #>  C:\Users\Hayden\AppData\Local\Temp\Rtmp4a7sWy\downloaded_packages
 
 <img src="man/figures/README-main_plot-1.png" width="100%" />
 

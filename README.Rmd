@@ -14,9 +14,10 @@ knitr::opts_chunk$set(
   dpi = 800
 )
 ```
-# ggbump
+# ggbump <img src="man/figures/logo.png" align="right" />
 
 <!-- badges: start -->
+[![CRAN status](https://www.r-pkg.org/badges/version/ggbump)](https://CRAN.R-project.org/package=ggbump)
 <!-- badges: end -->
 
 The R package `ggbump` creates elegant bump charts in ggplot.Bump charts are good
