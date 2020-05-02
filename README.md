@@ -64,7 +64,7 @@ above](https://github.com/davidsjoberg/ggbump/wiki/geom_sigmoid)
 
 With `geom_sigmoid` you have the flexibility to make more complex plots:
 
-![Example5](https://user-images.githubusercontent.com/44140737/80861016-17179700-8c6c-11ea-8ebf-6741de28a550.png)
+![Example5](man/figures/ranking_gdpr.png?raw=true)
 
 [Click here for code to the plot
 above](https://github.com/davidsjoberg/tidytuesday/blob/master/2020w17/2020w17_skript.R)
