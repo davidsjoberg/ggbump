@@ -17,6 +17,9 @@ knitr::opts_chunk$set(
 # ggbump <img src="man/figures/logo.png" align="right" />
 
 <!-- badges: start -->
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
+[![CRAN status](https://www.r-pkg.org/badges/version/ggbump)](https://CRAN.R-project.org/package=ggbump)
+[![R build status](https://github.com/HaydenMacDonald/ggbump/workflows/R-CMD-check/badge.svg)](https://github.com/HaydenMacDonald/ggbump/actions)
 <!-- badges: end -->
 
 The R package `ggbump` creates elegant bump charts in ggplot. Bump charts are good

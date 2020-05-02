@@ -6,3 +6,4 @@ README.Rmd
 ^CRAN-RELEASE$
 ^data-raw$
 ^.*.html$
+^\.github$
