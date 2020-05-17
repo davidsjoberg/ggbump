@@ -11,6 +11,7 @@ experimental](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https:/
 status](https://www.r-pkg.org/badges/version/ggbump)](https://CRAN.R-project.org/package=ggbump)
 [![R build
 status](https://github.com/HaydenMacDonald/ggbump/workflows/R-CMD-check/badge.svg)](https://github.com/HaydenMacDonald/ggbump/actions)
+\[![CRAN Downloads](https://cranlogs.r-pkg.org/badges/ggbump)
 <!-- badges: end -->
 
 The R package `ggbump` creates elegant bump charts in ggplot. Bump
@@ -39,14 +40,16 @@ Basic example:
 
 <img src="man/figures/README-main_plot-1.png" width="100%" />
 
-A more advanced example:
+A more advanced
+example:
 
 ![Example2](https://user-images.githubusercontent.com/44140737/75692519-fb146b00-5ca5-11ea-85f5-9fc33e760a7d.png)
 
 [Click here for code to the plot
 above](https://github.com/davidsjoberg/ggbump/wiki/My-year-on-Spotify)
 
-Flags could be used instead of names:
+Flags could be used instead of
+names:
 
 ![Example3](https://user-images.githubusercontent.com/44140737/76630573-8f04f300-6540-11ea-802a-653e3b509dfa.png)
 
@@ -55,7 +58,8 @@ above](https://github.com/davidsjoberg/ggbump/wiki/geom_bump-with-flags)
 
 ## Sigmoid curves examples
 
-With `geom_sigmoid` you can make custom sigmoid curves:
+With `geom_sigmoid` you can make custom sigmoid
+curves:
 
 ![Example4](https://user-images.githubusercontent.com/44140737/79050627-9268c880-7c2b-11ea-9afb-263cce8f98f3.png)
 
