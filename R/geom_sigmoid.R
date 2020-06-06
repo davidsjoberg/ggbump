@@ -1,5 +1,12 @@
 # ** StatSigmoid ------------------------------------------------------------------
+
 StatSigmoid <- ggplot2::ggproto("StatSigmoid", ggplot2::Stat,
+                                setup_data = function(data, params) {
+                                  data <- data %>%
+                                    group_by(PANEL) %>%
+                                    mutate(group = row_number()) %>%
+                                    as.data.frame()
+                                },
                                 compute_group = function(data, scales, smooth, direction) {
                                   out <- sigmoid(data$x, data$xend, data$y, data$yend,
                                                  smooth = smooth, direction = direction)
