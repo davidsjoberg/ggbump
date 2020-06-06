@@ -3,8 +3,8 @@
 StatSigmoid <- ggplot2::ggproto("StatSigmoid", ggplot2::Stat,
                                 setup_data = function(data, params) {
                                   data <- data %>%
-                                    group_by(PANEL) %>%
-                                    mutate(group = row_number()) %>%
+                                    dplyr::group_by(PANEL) %>%
+                                    dplyr::mutate(group = dplyr::row_number()) %>%
                                     as.data.frame()
                                 },
                                 compute_group = function(data, scales, smooth, direction) {
