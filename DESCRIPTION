@@ -12,7 +12,8 @@ Imports:
     ggplot2,
     dplyr,
     purrr,
-    tidyr
+    tidyr,
+    magrittr
 RoxygenNote: 7.1.0
 Suggests: 
     testthat (>= 2.1.0)
