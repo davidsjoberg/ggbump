@@ -5,7 +5,9 @@
 \title{geom_bump
 
 Creates a ggplot that makes a smooth rank over time. To change the `smooth`
-argument you need to put it outside of the `aes` of the geom. Uses the x and y aestethics.}
+argument you need to put it outside of the `aes` of the geom. Uses the x and y aestethics.
+Usually you want to compare multiple lines and if so, use the `color` aestethic.
+To change the direction of the curve to 'vertical' set `direction = "y`}
 \usage{
 geom_bump(
   mapping = NULL,
@@ -49,9 +51,12 @@ geom_bump
 
 Creates a ggplot that makes a smooth rank over time. To change the `smooth`
 argument you need to put it outside of the `aes` of the geom. Uses the x and y aestethics.
+Usually you want to compare multiple lines and if so, use the `color` aestethic.
+To change the direction of the curve to 'vertical' set `direction = "y`
 }
 \examples{
 library(ggplot2)
+library(ggbump)
 df <- data.frame(country = c(
   "India", "India", "India",
   "Sweden", "Sweden", "Sweden",
@@ -61,10 +66,19 @@ year = c(2011, 2012, 2013,
 2011, 2012, 2013,
 2011, 2012, 2013,
 2011, 2012, 2013),
+month = c("January", "July", "November",
+          "January", "July", "November",
+          "January", "July", "November",
+          "January", "July", "November"),
 rank = c(4, 2, 2, 3, 1, 4, 2, 3, 1, 1, 4, 3))
 
+# Contingous x axis
 ggplot(df, aes(year, rank, color = country)) +
   geom_point(size = 10) +
+  geom_bump(size = 2)
+
+# Discrete x axis
+ggplot(df, aes(month, rank, color = country)) +
   geom_bump(size = 2)
 
 }

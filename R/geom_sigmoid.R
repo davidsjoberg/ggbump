@@ -6,6 +6,8 @@ StatSigmoid <- ggplot2::ggproto("StatSigmoid", ggplot2::Stat,
                                     dplyr::group_by(PANEL) %>%
                                     dplyr::mutate(group = dplyr::row_number()) %>%
                                     as.data.frame()
+                                  data %>% print()
+                                  data
                                 },
                                 compute_group = function(data, scales, smooth, direction) {
                                   out <- sigmoid(data$x, data$xend, data$y, data$yend,

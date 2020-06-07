@@ -1,13 +1,37 @@
 # ** StatBump ------------------------------------------------------------------
 StatBump <- ggplot2::ggproto("StatBump", ggplot2::Stat,
-                             compute_group = function(data, scales, smooth, direction = direction) {
-                               if(nrow(data) == 1) {
-                                 warning("'StatBump' needs at least two observations per group")
-                                 return(data %>% dplyr::slice(0))
-                               }
+                             setup_data = function(data, params) {
+                               # Create x_lag, and y_lag to be passed to `compute_group`
+                               # Factors need this to be able to compute a sigmoid function
+                               data <- data %>%
+                                 dplyr::mutate(r = dplyr::row_number()) %>%
+                                 dplyr::arrange(x) %>%
+                                 dplyr::group_by_at(vars(-PANEL, -group, -x, -y, -r)) %>%
+                                 dplyr::mutate(x_lag = dplyr::lag(x),
+                                               y_lag = dplyr::lag(y)) %>%
+                                 dplyr::ungroup() %>%
+                                 dplyr::arrange(r) %>%
+                                 dplyr::select(-.data$r) %>%
+                                 as.data.frame()
+                               data
+                             },
+                             compute_group = function(data, scales, smooth, direction) {
                                data <- data %>%
                                  dplyr::arrange(x)
 
+                               # Handling of the special case of factors
+                               # Factors come as a df with one row
+                               if(nrow(data) == 1) {
+                                 if(is.na(data$x_lag) | is.na(data$y_lag)) {
+                                   return(data %>% dplyr::slice(0))
+                                 } else {
+                                   out <- sigmoid(data$x_lag, data$x, data$y_lag, data$y,
+                                                  smooth = smooth, direction = direction)
+                                   return(as.data.frame(out))
+                                 }
+                               }
+
+                               # Normal case
                                out <-rank_sigmoid(data$x, data$y, smooth = smooth, direction = direction) %>%
                                  dplyr::mutate(key = 1) %>%
                                  dplyr::left_join(data %>%
@@ -28,6 +52,8 @@ StatBump <- ggplot2::ggproto("StatBump", ggplot2::Stat,
 #'
 #' Creates a ggplot that makes a smooth rank over time. To change the `smooth`
 #' argument you need to put it outside of the `aes` of the geom. Uses the x and y aestethics.
+#' Usually you want to compare multiple lines and if so, use the `color` aestethic.
+#' To change the direction of the curve to 'vertical' set `direction = "y`
 #'
 #' @param mapping provide you own mapping. both x and y need to be numeric.
 #' @param data provide you own data
@@ -44,6 +70,7 @@ StatBump <- ggplot2::ggproto("StatBump", ggplot2::Stat,
 #'
 #' @examples
 #' library(ggplot2)
+#' library(ggbump)
 #' df <- data.frame(country = c(
 #'   "India", "India", "India",
 #'   "Sweden", "Sweden", "Sweden",
@@ -53,10 +80,19 @@ StatBump <- ggplot2::ggproto("StatBump", ggplot2::Stat,
 #' 2011, 2012, 2013,
 #' 2011, 2012, 2013,
 #' 2011, 2012, 2013),
+#' month = c("January", "July", "November",
+#'           "January", "July", "November",
+#'           "January", "July", "November",
+#'           "January", "July", "November"),
 #' rank = c(4, 2, 2, 3, 1, 4, 2, 3, 1, 1, 4, 3))
 #'
+#' # Contingous x axis
 #' ggplot(df, aes(year, rank, color = country)) +
 #'   geom_point(size = 10) +
+#'   geom_bump(size = 2)
+#'
+#' # Discrete x axis
+#' ggplot(df, aes(month, rank, color = country)) +
 #'   geom_bump(size = 2)
 #'
 #' @export

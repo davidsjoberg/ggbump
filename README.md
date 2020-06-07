@@ -170,62 +170,41 @@ ggplot(df, aes(year, rank, color = country)) +
 
 <img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
 
-## geom\_bump with factors
+## geom\_bump with factors (development version only)
 
-To use `geom_bump` with factors or character axis you need to prepare
-the data frame before. You need to prepare one column for the numeric
-position and one column with the name. If you want to have
-character/factor on both y and x you need to prepare 4 columns.
+You can use `geom_bump` with factors or character as x axis. Just
+remember to keep an eye on factor order.
 
 ``` r
 # Original df
-df <- tibble(season = c("Spring", "Summer", "Autumn", "Winter", 
-                        "Spring", "Summer", "Autumn", "Winter", 
-                        "Spring", "Summer", "Autumn", "Winter"),
-             position = c("Gold", "Gold", "Bronze", "Gold",
-                          "Silver", "Bronze", "Gold", "Silver",
-                          "Bronze", "Silver", "Silver", "Bronze"),
-             player = c(rep("David", 4),
-                        rep("Anna", 4),
-                        rep("Franz", 4)))
+df <- tibble(season = c("Spring", "Pre-season", "Summer", "Season finale", "Autumn", "Winter", 
+                        "Spring", "Pre-season", "Summer", "Season finale", "Autumn", "Winter", 
+                        "Spring", "Pre-season", "Summer", "Season finale", "Autumn", "Winter",
+                        "Spring", "Pre-season", "Summer", "Season finale", "Autumn", "Winter"),
+             rank = c(1, 3, 4, 2, 1, 4,
+                      2, 4, 1, 3, 2, 3,
+                      4, 1, 2, 4, 4, 1,
+                      3, 2, 3, 1, 3, 2),
+             player = c(rep("David", 6),
+                        rep("Anna", 6),
+                        rep("Franz", 6),
+                        rep("Ika", 6)))
 
-# Create factors and numeric columns
+# Create factors and order factor
 df <- df %>% 
-  mutate(season = factor(season, 
-                         levels = c("Spring", "Summer", "Autumn", "Winter")),
-         x = as.numeric(season),
-         position = factor(position, 
-                           levels = c("Gold", "Silver", "Bronze")),
-         y = as.numeric(position))
+  mutate(season = factor(season, levels = unique(season)))
 
 # Add manual axis labels to plot
-p <- ggplot(df, aes(x, y, color = player)) +
-  geom_bump(size = 2, smooth = 8, show.legend = F) +
+ggplot(df, aes(season, rank, color = player)) +
+  geom_bump(size = 2, smooth = 20, show.legend = F) +
   geom_point(size = 5, aes(shape = player)) +
-  scale_x_continuous(breaks = df$x %>% unique(),
-                     labels = df$season %>% levels()) +
-  scale_y_reverse(breaks = df$y %>% unique(),
-                     labels = df$position %>% levels())
-p
+  theme_minimal_grid(font_size = 10, line_size = 0) +
+  theme(panel.grid.major = element_blank(),
+        axis.ticks = element_blank()) +
+  scale_color_manual(values = wes_palette(n = 4, name = "IsleofDogs1"))
 ```
 
 <img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
-
-### And some nice theme features
-
-``` r
-p +
-  theme_minimal_grid(font_size = 14, line_size = 0) +
-  theme(panel.grid.major = element_blank(),
-        axis.ticks = element_blank()) +
-  labs(y = "Medal",
-       x = "Season",
-       color = NULL,
-       shape = NULL) +
-  scale_color_manual(values = wes_palette(n = 3, name = "IsleofDogs1"))
-```
-
-<img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
 
 ## Feedback
 
