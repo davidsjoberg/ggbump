@@ -10,8 +10,8 @@ experimental](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https:/
 [![CRAN
 status](https://www.r-pkg.org/badges/version/ggbump)](https://CRAN.R-project.org/package=ggbump)
 [![R build
-status](https://github.com/HaydenMacDonald/ggbump/workflows/R-CMD-check/badge.svg)](https://github.com/HaydenMacDonald/ggbump/actions)
-\[![CRAN Downloads](https://cranlogs.r-pkg.org/badges/ggbump)
+status](https://github.com/davidsjoberg/ggbump/workflows/R-CMD-check/badge.svg)](https://github.com/davidsjoberg/ggbump/actions)
+[![CRAN Downloads](https://cranlogs.r-pkg.org/badges/ggbump)](https://cranlogs.r-pkg.org/badges/ggbump)
 <!-- badges: end -->
 
 The R package `ggbump` creates elegant bump charts in ggplot. Bump
