@@ -2,11 +2,7 @@
 % Please edit documentation in R/geom_sigmoid.R
 \name{geom_sigmoid}
 \alias{geom_sigmoid}
-\title{geom_sigmoid
-
-Creates a ggplot that makes a smooth rank over time. To change the `smooth`
-argument you need to put it outside of the `aes` of the geom.
-Uses the x, xend, y and yend aestethics. Make sure each sigmoid curve is its own group.}
+\title{geom_sigmoid}
 \usage{
 geom_sigmoid(
   mapping = NULL,
@@ -46,8 +42,6 @@ geom_sigmoid(
 ggplot layer
 }
 \description{
-geom_sigmoid
-
 Creates a ggplot that makes a smooth rank over time. To change the `smooth`
 argument you need to put it outside of the `aes` of the geom.
 Uses the x, xend, y and yend aestethics. Make sure each sigmoid curve is its own group.

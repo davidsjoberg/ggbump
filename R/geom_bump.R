@@ -63,7 +63,7 @@ StatBump <- ggplot2::ggproto("StatBump", ggplot2::Stat,
 )
 
 # ** geom_bump -----------------------------------------------------------------
-#' @title geom_bump
+#' geom_bump
 #'
 #' Creates a ggplot that makes a smooth rank over time. To change the `smooth`
 #' argument you need to put it outside of the `aes` of the geom. Uses the x and y aestethics.

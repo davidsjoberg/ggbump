@@ -1,4 +1,4 @@
-#' @title sigmoid
+#' sigmoid
 #'
 #' Creates a longer dataframe with coordinates for a smoothed line.
 #'
@@ -33,7 +33,7 @@ sigmoid <- function(x_from, x_to, y_from, y_to, smooth = 5, n = 100, direction =
 }
 
 # rank_sigmoid -------------------------------------------------------------
-#' @title rank_sigmoid
+#' rank_sigmoid
 #'
 #' Creates a longer dataframe with coordinates for a smoothed line.
 #'

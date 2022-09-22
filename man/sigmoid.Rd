@@ -2,9 +2,7 @@
 % Please edit documentation in R/helpers.R
 \name{sigmoid}
 \alias{sigmoid}
-\title{sigmoid
-
-Creates a longer dataframe with coordinates for a smoothed line.}
+\title{sigmoid}
 \usage{
 sigmoid(x_from, x_to, y_from, y_to, smooth = 5, n = 100, direction = "x")
 }
@@ -27,7 +25,5 @@ sigmoid(x_from, x_to, y_from, y_to, smooth = 5, n = 100, direction = "x")
 a data frame
 }
 \description{
-sigmoid
-
 Creates a longer dataframe with coordinates for a smoothed line.
 }
