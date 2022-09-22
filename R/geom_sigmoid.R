@@ -1,5 +1,9 @@
 # ** StatSigmoid ------------------------------------------------------------------
 
+#' @export
+#' @format NULL
+#' @usage NULL
+#' @rdname ggbump-ggproto
 StatSigmoid <- ggplot2::ggproto("StatSigmoid", ggplot2::Stat,
                                 setup_data = function(data, params) {
                                   data <- data %>%

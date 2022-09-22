@@ -1,4 +1,19 @@
+#' ggbump extensions to ggplot2
+#'
+#' These ggproto objects are participate in the ggproto class extension
+#' mechanism provided by ggplot2. They are typically of no concern, as they can
+#' be used through the `geom_*()` functions.
+#'
+#' @name ggbump-ggproto
+#' @rdname ggbump-ggproto
+NULL
+
 # ** StatBump ------------------------------------------------------------------
+
+#' @export
+#' @format NULL
+#' @usage NULL
+#' @rdname ggbump-ggproto
 StatBump <- ggplot2::ggproto("StatBump", ggplot2::Stat,
                              setup_data = function(data, params) {
                                # Create x_lag, and y_lag to be passed to `compute_group`
