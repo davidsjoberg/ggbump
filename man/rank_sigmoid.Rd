@@ -2,9 +2,7 @@
 % Please edit documentation in R/helpers.R
 \name{rank_sigmoid}
 \alias{rank_sigmoid}
-\title{rank_sigmoid
-
-Creates a longer dataframe with coordinates for a smoothed line.}
+\title{rank_sigmoid}
 \usage{
 rank_sigmoid(x, y, smooth = 8, direction = "x")
 }
@@ -21,7 +19,5 @@ rank_sigmoid(x, y, smooth = 8, direction = "x")
 a data frame
 }
 \description{
-rank_sigmoid
-
 Creates a longer dataframe with coordinates for a smoothed line.
 }

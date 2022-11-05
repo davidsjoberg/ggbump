@@ -1,5 +1,9 @@
 # ** StatSigmoid ------------------------------------------------------------------
 
+#' @export
+#' @format NULL
+#' @usage NULL
+#' @rdname ggbump-ggproto
 StatSigmoid <- ggplot2::ggproto("StatSigmoid", ggplot2::Stat,
                                 setup_data = function(data, params) {
                                   data <- data %>%
@@ -19,7 +23,7 @@ StatSigmoid <- ggplot2::ggproto("StatSigmoid", ggplot2::Stat,
 )
 
 # ** geom_sigmoid -----------------------------------------------------------------
-#' @title geom_sigmoid
+#' geom_sigmoid
 #'
 #' Creates a ggplot that makes a smooth rank over time. To change the `smooth`
 #' argument you need to put it outside of the `aes` of the geom.

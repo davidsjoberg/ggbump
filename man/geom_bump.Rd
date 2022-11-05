@@ -2,12 +2,7 @@
 % Please edit documentation in R/geom_bump.R
 \name{geom_bump}
 \alias{geom_bump}
-\title{geom_bump
-
-Creates a ggplot that makes a smooth rank over time. To change the `smooth`
-argument you need to put it outside of the `aes` of the geom. Uses the x and y aestethics.
-Usually you want to compare multiple lines and if so, use the `color` aestethic.
-To change the direction of the curve to 'vertical' set `direction = "y`}
+\title{geom_bump}
 \usage{
 geom_bump(
   mapping = NULL,
@@ -47,8 +42,6 @@ geom_bump(
 ggplot layer
 }
 \description{
-geom_bump
-
 Creates a ggplot that makes a smooth rank over time. To change the `smooth`
 argument you need to put it outside of the `aes` of the geom. Uses the x and y aestethics.
 Usually you want to compare multiple lines and if so, use the `color` aestethic.
