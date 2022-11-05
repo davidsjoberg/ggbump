@@ -9,7 +9,7 @@ StatSigmoid <- ggplot2::ggproto("StatSigmoid", ggplot2::Stat,
                                   data %>% print()
                                   data
                                 },
-                                compute_group = function(data, scales, smooth, direction) {
+                                compute_group = function(data, scales, smooth = 8, direction = "x") {
                                   out <- sigmoid(data$x, data$xend, data$y, data$yend,
                                                  smooth = smooth, direction = direction)
                                   out

@@ -15,7 +15,7 @@ StatBump <- ggplot2::ggproto("StatBump", ggplot2::Stat,
                                  as.data.frame()
                                data
                              },
-                             compute_group = function(data, scales, smooth, direction) {
+                             compute_group = function(data, scales, smooth = 8, direction = "x") {
                                data <- data %>%
                                  dplyr::arrange(x)
 
