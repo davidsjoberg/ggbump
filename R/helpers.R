@@ -9,6 +9,9 @@
 #' @param n number of point that should be smoothed
 #' @param smooth smooth parameter. Higher means less smoothing
 #' @param direction the character x or y depending on direction of smoothing
+#' @import dplyr
+#' @importFrom tidyr drop_na
+#' @importFrom purrr pmap_dfr
 #'
 #' @return a data frame
 #'

@@ -1,5 +1,9 @@
 # ** StatSigmoid ------------------------------------------------------------------
 
+#' @import ggplot2
+#' @importFrom dplyr group_by
+#' @importFrom dplyr mutate
+#' @importFrom dplyr row_number
 #' @export
 #' @format NULL
 #' @usage NULL
@@ -39,6 +43,7 @@ StatSigmoid <- ggplot2::ggproto("StatSigmoid", ggplot2::Stat,
 #' @param direction the character x or y depending of smoothing direction
 #' @param inherit.aes should the geom inherits aestethics
 #' @param ... other arguments to be passed to the geom
+#' @import ggplot2
 #'
 #' @return ggplot layer
 #'
