@@ -10,6 +10,8 @@ NULL
 
 # ** StatBump ------------------------------------------------------------------
 
+#' @import ggplot2
+#' @import dplyr
 #' @export
 #' @format NULL
 #' @usage NULL
@@ -80,6 +82,7 @@ StatBump <- ggplot2::ggproto("StatBump", ggplot2::Stat,
 #' @param direction the character x or y depending of smoothing direction
 #' @param inherit.aes should the geom inherits aestethics
 #' @param ... other arguments to be passed to the geom
+#' @importFrom ggplot2 layer
 #'
 #' @return ggplot layer
 #'

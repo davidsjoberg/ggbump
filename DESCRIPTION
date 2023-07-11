@@ -8,12 +8,12 @@ Description: A geom for ggplot to create bump plots. Can be good to use for show
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+Depends: ggplot2
 Imports: 
-    ggplot2,
     dplyr,
     purrr,
     tidyr,
     magrittr
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3
 Suggests: 
     testthat (>= 2.1.0)
