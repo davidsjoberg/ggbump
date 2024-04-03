@@ -8,6 +8,8 @@ Description: A geom for ggplot to create bump plots. Can be good to use for show
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+URL: https://github.com/davidsjoberg/ggbump
+BugReports: https://github.com/davidsjoberg/ggbump/issues
 Imports: 
     ggplot2,
     dplyr,
